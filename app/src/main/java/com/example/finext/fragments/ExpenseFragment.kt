@@ -43,9 +43,9 @@ class ExpenseFragment : Fragment() {
         return ComposeView(requireContext()).apply {
             setContent {
                 ExpenseScreen()
+                }
             }
         }
-    }
 
     @Preview
     @Composable
@@ -63,7 +63,6 @@ class ExpenseFragment : Fragment() {
                 Text("Add Expense", style = MaterialTheme.typography.h5)
                 Spacer(modifier = Modifier.height(16.dp))
                 ExpenseInputField("Amount", amount)
-                ExpenseInputField("Category", category)
                 ExpenseInputField("Label", label)
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(

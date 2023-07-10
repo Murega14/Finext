@@ -1,19 +1,20 @@
+@file:Suppress("DEPRECATION")
+
 package com.example.finext
 
 import android.os.Bundle
 import androidx.activity.compose.setContent
 import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.Button
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
-import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 
 class MainActivity : AppCompatActivity() {
 
@@ -27,49 +28,50 @@ class MainActivity : AppCompatActivity() {
     @Preview
     @Composable
     fun ExpenseDashboard() {
-        val totalExpense = remember { mutableStateOf(500f) }
+        val navController = rememberNavController()
 
         Column(modifier = Modifier.padding(16.dp)) {
-            Text(text = "Total Expense: $${totalExpense.value}")
-            Button(
-                onClick = {
-                    findNavController().navigate("expenseFragment")
-                },
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Text(text = "Add Expense")
+            Text(text = "Total Expense: $500")
+            Row {
+                Button(
+                    onClick = {
+                        navController.navigate("expenseFragment")
+                    },
+                    modifier = Modifier.padding(top = 16.dp)
+                ) {
+                    Text(text = "Add Expense")
+                }
+
+                Button(
+                    onClick = {
+                        navController.navigate("budgetFragment")
+                    },
+                    modifier = Modifier.padding(top = 16.dp)
+                ) {
+                    Text(text = "Create Budget")
+                }
             }
-            Button(
-                onClick = {
-                    findNavController().navigate("budgetFragment")
-                },
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Text(text = "Create Budget")
-            }
-            Button(
-                onClick = {
-                    findNavController().navigate("billPaymentFragment")
-                },
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Text(text = "Bill Payment")
-            }
-            Button(
-                onClick = {
-                    // Code to navigate to Monthly Insights screen
-                },
-                modifier = Modifier.padding(top = 16.dp)
-            ) {
-                Text(text = "Monthly Insights")
+            Row {
+                Button(
+                    onClick = {
+                        navController.navigate("billPaymentFragment")
+                    },
+                    modifier = Modifier.padding(top = 16.dp)
+                ) {
+                    Text(text = "Bill Payment")
+                }
+                Button(
+                    onClick = {
+                        // Code to navigate to Monthly Insights screen
+                    },
+                    modifier = Modifier.padding(top = 16.dp)
+                ) {
+                    Text(text = "Monthly Insights")
+                }
             }
         }
     }
 
-    private fun findNavController(): NavController {
-        return findNavController()
-
-    }
 
     @Deprecated("Deprecated in Java")
     override fun onBackPressed() {
