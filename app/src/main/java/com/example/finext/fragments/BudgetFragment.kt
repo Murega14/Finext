@@ -24,7 +24,7 @@ class BudgetFragment : Fragment() {
         budgetValue = view.findViewById(R.id.budgetamount)
         budgetbtnSaveData = view.findViewById(R.id.budgetbtnSave)
 
-        dbRef = FirebaseDatabase.getInstance().getReference("Expenses")
+        dbRef = FirebaseDatabase.getInstance().getReference("Budget")
 
         // Get the reference to the Spinner view
         val budgetPeriodSpinner = view.findViewById<Spinner>(R.id.budgetPeriodSpinner)

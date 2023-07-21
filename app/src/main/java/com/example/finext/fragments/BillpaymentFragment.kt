@@ -9,71 +9,94 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
+import android.widget.EditText
+import android.widget.Toast
+import androidx.core.app.ActivityCompat
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
+import androidx.core.content.ContextCompat
 import androidx.fragment.app.Fragment
-import androidx.compose.foundation.layout.Column
-import androidx.compose.material.Button
-import androidx.compose.material.Text
-import androidx.compose.runtime.mutableStateOf
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.setValue
-import androidx.compose.ui.platform.ComposeView
-import androidx.core.app.ActivityCompat
 import com.example.finext.R
+import com.example.finext.models.BillModel
 import com.google.firebase.database.DatabaseReference
 import com.google.firebase.database.FirebaseDatabase
 import java.time.LocalDate
 import java.time.format.DateTimeFormatter
 
 class BillpaymentFragment : Fragment() {
-    private lateinit var database: DatabaseReference
-    private var billAmount by mutableStateOf("")
-    private var dueDate by mutableStateOf("")
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        database = FirebaseDatabase.getInstance().reference
-    }
+    private lateinit var billName: EditText
+    private lateinit var billAmount: EditText
+    private lateinit var dueDate: EditText
+    private lateinit var billSaveButton: Button
+    private lateinit var database: DatabaseReference
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View {
-        return ComposeView(requireContext()).apply {
-            setContent {
-                Column {
-                    Text("Bill Amount: $billAmount")
-                    Text("Due Date: $dueDate")
-                    Button(onClick = { saveBillData() }) {
-                        Text("Save Bill")
-                    }
-                }
-            }
+    ): View? {
+        val view = inflater.inflate(R.layout.activity_bill_payment_fragment, container, false)
+
+        billName = view.findViewById(R.id.billname)
+        billAmount = view.findViewById(R.id.billamount)
+        dueDate = view.findViewById(R.id.duedate)
+        billSaveButton = view.findViewById(R.id.billbtnsave)
+
+        database = FirebaseDatabase.getInstance().getReference("Bills")
+
+        billSaveButton.setOnClickListener {
+            saveBill()
         }
+
+        return view
     }
 
-    private fun saveBillData() {
-        val billId = database.child("bills").push().key
-        val billData = mapOf(
-            "amount" to billAmount,
-            "dueDate" to dueDate
-        )
+    private fun saveBill() {
+        val billNameValue = billName.text.toString()
+        val billAmountValue = billAmount.text.toString().toDoubleOrNull()
+        val dueDateValue = dueDate.text.toString()
+
+        if (billNameValue.isEmpty()) {
+            billName.error = "Please enter bill name"
+            return
+        }
+
+        if (billAmountValue == null) {
+            billAmount.error = "Please enter a valid amount"
+            return
+        }
+
+        if (dueDateValue.isEmpty()) {
+            dueDate.error = "Please enter a valid date"
+            return
+        }
+
+        val billId = database.push().key
 
         if (billId != null) {
-            database.child("bills").child(billId).setValue(billData)
+            val bill = BillModel(billId, billNameValue, billAmountValue, dueDateValue)
+
+            database.child(billId).setValue(bill)
                 .addOnSuccessListener {
-                    // Data saved successfully
-                    setNotification(requireContext())
+                    Toast.makeText(requireContext(), "Data inserted successfully", Toast.LENGTH_SHORT).show()
+                    clearInputs()
+                    setNotification(requireContext(), dueDateValue)
                 }
-                .addOnFailureListener {
-                    // Error occurred while saving data
+                .addOnFailureListener { exception ->
+                    Toast.makeText(requireContext(), "Error: ${exception.message}", Toast.LENGTH_SHORT).show()
                 }
         }
     }
 
-    private fun setNotification(context: Context) {
+    private fun clearInputs() {
+        billName.text.clear()
+        billAmount.text.clear()
+        dueDate.text.clear()
+    }
+
+    private fun setNotification(context: Context, dueDate: String) {
         val formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd")
         val dueDateObj = LocalDate.parse(dueDate, formatter)
         val notificationDate = dueDateObj.minusDays(2)
@@ -86,7 +109,11 @@ class BillpaymentFragment : Fragment() {
             "Bill Notifications",
             NotificationManager.IMPORTANCE_DEFAULT
         )
-        val manager = context.getSystemService(Context.NOTIFICATION_SERVICE) as NotificationManager
+
+        val manager = ContextCompat.getSystemService(
+            context,
+            NotificationManager::class.java
+        ) as NotificationManager
         manager.createNotificationChannel(channel)
 
         val notificationBuilder = NotificationCompat.Builder(context, channelId)
@@ -97,21 +124,19 @@ class BillpaymentFragment : Fragment() {
             .setAutoCancel(true)
 
         val notificationManager = NotificationManagerCompat.from(requireContext())
-        if (ActivityCompat.checkSelfPermission(
+
+        if (ContextCompat.checkSelfPermission(
                 requireContext(),
                 Manifest.permission.POST_NOTIFICATIONS
             ) != PackageManager.PERMISSION_GRANTED
-        )  {
-            // TODO: Consider calling
-            //    ActivityCompat#requestPermissions
-
-            // here to request the missing permissions, and then overriding
-            //   public void onRequestPermissionsResult(int requestCode, String[] permissions,
-            //                                          int[] grantResults)
-            // to handle the case where the user grants the permission. See the documentation
-            // for ActivityCompat#requestPermissions for more details.
-            return
+        ) {
+            ActivityCompat.requestPermissions(
+                requireActivity(),
+                arrayOf(Manifest.permission.POST_NOTIFICATIONS),
+                0
+            )
+        } else {
+            notificationManager.notify(notificationId, notificationBuilder.build())
         }
-        notificationManager.notify(notificationId, notificationBuilder.build())
     }
 }

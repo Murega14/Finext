@@ -6,10 +6,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finext.R
-import com.example.finext.models.ExpenseModel
+import com.example.finext.models.BillModel
 
-class ExpAdapter(private val expList: ArrayList<ExpenseModel>) :
-    RecyclerView.Adapter<ExpAdapter.ViewHolder>() {
+class BillAdapter(private val billList: ArrayList<BillModel>) :
+    RecyclerView.Adapter<BillAdapter.ViewHolder>() {
 
     private lateinit var mListener: OnItemClickListener
 
@@ -22,23 +22,25 @@ class ExpAdapter(private val expList: ArrayList<ExpenseModel>) :
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
-        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.exp_list_item, parent, false)
+        val itemView = LayoutInflater.from(parent.context).inflate(R.layout.bill_list_item, parent, false)
         return ViewHolder(itemView)
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val currentExp = expList[position]
-        holder.tvExpName.text = currentExp.label
-        holder.tvExpAmount.text = currentExp.amount.toString()
+        val currentBill = billList[position]
+        holder.tvBillName.text = currentBill.billname
+        holder.tvBillAmount.text = currentBill.billamount.toString()
+        holder.tvDueDate.text = currentBill.dueDate
     }
 
     override fun getItemCount(): Int {
-        return expList.size
+        return billList.size
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val tvExpName: TextView = itemView.findViewById(R.id.tvExpName)
-        val tvExpAmount: TextView = itemView.findViewById(R.id.tvExpAmount)
+        val tvBillName: TextView = itemView.findViewById(R.id.tvBillName)
+        val tvBillAmount: TextView = itemView.findViewById(R.id.tvBillAmount)
+        val tvDueDate: TextView = itemView.findViewById(R.id.tvDueDate)
 
         init {
             itemView.setOnClickListener {

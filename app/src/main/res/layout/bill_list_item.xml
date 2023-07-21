@@ -15,29 +15,36 @@
         android:layout_gravity="center"
         android:orientation="vertical">
 
-
-
         <TextView
-            android:id="@+id/tvExpName"
+            android:id="@+id/tvBillName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/expense"
+            android:text="Bill name"
             android:layout_gravity="center"
             android:gravity="center"
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"/>
+
         <TextView
-            android:id="@+id/tvExpAmount"
+            android:id="@+id/tvBillAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Amount"
+            android:text="Bill amount"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="italic" />
 
-
+        <TextView
+            android:id="@+id/tvDueDate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Due date"
+            android:layout_gravity="center"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:textStyle="bold" />
 
     </LinearLayout>
 

@@ -11,7 +11,7 @@
         <item
             android:id="@+id/nav_home"
             android:icon="@drawable/baseline_expense24"
-            android:title="Expenses"/>
+            android:title="Expenses" />
 
         <item
             android:id="@+id/nav_settings"

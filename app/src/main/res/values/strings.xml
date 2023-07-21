@@ -64,4 +64,5 @@
     <string name="enter_amount">Enter amount</string>
     <string name="enter_expense_category">Enter Expense Category</string>
     <string name="budget">Budget</string>
+    <string name="enter_date">Enter Date</string>
 </resources>
