@@ -5,6 +5,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
+<<<<<<< HEAD
     android:layout_margin="8dp"
     android:backgroundTintMode="screen"
     android:background="@color/gray">
@@ -16,10 +17,21 @@
         android:gravity="center"
         android:orientation="vertical"
         android:padding="16dp">
+=======
+    android:layout_margin="10dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:padding="16dp"
+        android:orientation="horizontal">
+>>>>>>> master
 
         <LinearLayout
-            android:layout_width="wrap_content"
+            android:layout_width="150dp"
             android:layout_height="wrap_content"
+            android:layout_marginStart="0dp"
             android:layout_gravity="center_vertical"
             android:orientation="horizontal">
 
@@ -28,15 +40,19 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+<<<<<<< HEAD
                 android:gravity="center"
                 android:text="@string/budget"
+=======
+                android:gravity="start"
+>>>>>>> master
                 android:textColor="@color/black"
                 android:textSize="30sp"
                 android:textStyle="bold" />
 
-
         </LinearLayout>
 
+<<<<<<< HEAD
         <TextView
             android:id="@+id/tvBudgetAmount"
             android:layout_width="110dp"
@@ -45,6 +61,23 @@
             android:text="Amount"
             android:textSize="30sp"
             android:textAlignment="center"/>
+=======
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            >
+            <TextView
+                android:id="@+id/tvSelectedBudgetPeriod"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:text="Budget Period"
+                android:layout_gravity="center"
+                android:textColor="@color/gold"
+                android:textSize="25dp"
+                android:textStyle="italic" />
+        </LinearLayout>
+
+>>>>>>> master
 
     </LinearLayout>
 

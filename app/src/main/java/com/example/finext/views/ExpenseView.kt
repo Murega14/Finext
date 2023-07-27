@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
-import android.widget.TextView
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -22,7 +21,6 @@ import com.google.firebase.database.ValueEventListener
 class ExpenseView : AppCompatActivity() {
 
     private lateinit var expRecyclerView: RecyclerView
-    private lateinit var tvLoadingData: TextView
     private lateinit var expList: ArrayList<ExpenseModel>
     private lateinit var dbRef: DatabaseReference
 
@@ -33,7 +31,6 @@ class ExpenseView : AppCompatActivity() {
         expRecyclerView = findViewById(R.id.rvExp)
         expRecyclerView.layoutManager = LinearLayoutManager(this)
         expRecyclerView.setHasFixedSize(true)
-        tvLoadingData = findViewById(R.id.tvLoadingData)
 
         expList = arrayListOf()
 
@@ -41,8 +38,7 @@ class ExpenseView : AppCompatActivity() {
     }
 
     private fun getExpenseData() {
-        expRecyclerView.visibility = View.GONE
-        tvLoadingData.visibility = View.VISIBLE
+        expRecyclerView.visibility = View.VISIBLE
 
         dbRef = FirebaseDatabase.getInstance().getReference("Expenses")
 
@@ -80,7 +76,6 @@ class ExpenseView : AppCompatActivity() {
                 Toast.makeText(this@ExpenseView, "Failed to fetch expense data", Toast.LENGTH_SHORT).show()
                 // Hide the loading indicator and handle any other UI changes required
                 expRecyclerView.visibility = View.VISIBLE
-                tvLoadingData.visibility = View.GONE
             }
         })
     }

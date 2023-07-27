@@ -27,8 +27,13 @@ class BudgetAdapter(private val budgetList: ArrayList<BudgetModel>) :
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val currentBudget = budgetList[position]
+<<<<<<< HEAD
         holder.tvBudgetName.text = currentBudget.budgetName
         holder.tvBudgetAmount.text = currentBudget.budgetValue.toString()
+=======
+        holder.tvBudgetName.text = currentBudget.budgetValue
+        holder.tvSelectedBudgetPeriod.text = currentBudget.selectedBudgetPeriod
+>>>>>>> master
     }
 
     override fun getItemCount(): Int {
@@ -37,7 +42,12 @@ class BudgetAdapter(private val budgetList: ArrayList<BudgetModel>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvBudgetName: TextView = itemView.findViewById(R.id.tvBudgetName)
+<<<<<<< HEAD
         val tvBudgetAmount: TextView = itemView.findViewById(R.id.tvBudgetAmount)
+=======
+        val tvSelectedBudgetPeriod: TextView = itemView.findViewById(R.id.tvSelectedBudgetPeriod)
+
+>>>>>>> master
 
         init {
             itemView.setOnClickListener {
