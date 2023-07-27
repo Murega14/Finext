@@ -8,7 +8,8 @@
     android:id="@+id/drawer_layout"
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
-    tools:context=".MainActivity">
+    tools:context=".MainActivity"
+    android:background="@color/material_dynamic_neutral0">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -27,7 +28,8 @@
         <FrameLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:id="@+id/frame_layout"/>
+            android:id="@+id/frame_layout"
+            android:background="@color/brown"/>
 
     </LinearLayout>
 

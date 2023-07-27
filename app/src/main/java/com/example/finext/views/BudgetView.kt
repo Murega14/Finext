@@ -63,6 +63,7 @@ class BudgetView : AppCompatActivity() {
 
                             intent.putExtra("budgetId", budgetList[position].budgetId)
                             intent.putExtra("budgetValue", budgetList[position].budgetValue)
+                            intent.putExtra("budgetName", budgetList[position].budgetName)
                             intent.putExtra("budgetPeriod", budgetList[position].selectedBudgetPeriod)
                             startActivity(intent)
                         }

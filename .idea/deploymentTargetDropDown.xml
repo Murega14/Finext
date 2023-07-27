@@ -2,12 +2,6 @@
 <project version="4">
   <component name="deploymentTargetDropDown">
     <value>
-      <entry key="BudgetDashboard">
-        <State />
-      </entry>
-      <entry key="ExpenseDashboard">
-        <State />
-      </entry>
       <entry key="app">
         <State />
       </entry>

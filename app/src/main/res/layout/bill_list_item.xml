@@ -4,10 +4,33 @@
     android:layout_height="wrap_content"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
+<<<<<<< HEAD
+    app:cardBackgroundColor="@color/orchid"
+=======
+>>>>>>> master
     app:cardCornerRadius="8dp"
     android:layout_margin="8dp">
 
     <LinearLayout
+<<<<<<< HEAD
+        android:layout_width="393dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvBillName"
+            android:layout_width="358dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="start"
+            android:text="Bill name"
+            android:textColor="@color/lavender"
+            android:textSize="30sp"
+            android:textStyle="normal" />
+=======
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center"
@@ -25,21 +48,41 @@
             android:textColor="@color/black"
             android:textSize="30sp"
             android:textStyle="bold"/>
+>>>>>>> master
 
         <TextView
             android:id="@+id/tvBillAmount"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_gravity="start"
+            android:text="Bill amount"
+            android:textColor="@color/lavender"
+            android:textSize="20dp"
+            android:textStyle="bold" />
+=======
             android:text="Bill amount"
             android:layout_gravity="center"
             android:textColor="@color/black"
             android:textSize="20dp"
             android:textStyle="italic" />
+>>>>>>> master
 
         <TextView
             android:id="@+id/tvDueDate"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+<<<<<<< HEAD
+            android:layout_gravity="start"
+            android:text="Due date"
+            android:textColor="@color/olive"
+            android:textSize="16sp"
+            android:textStyle="italic" />
+
+    </LinearLayout>
+
+</androidx.cardview.widget.CardView>
+=======
             android:text="Due date"
             android:layout_gravity="center"
             android:textColor="@color/black"
@@ -49,3 +92,4 @@
     </LinearLayout>
 
 </androidx.cardview.widget.CardView>
+>>>>>>> master

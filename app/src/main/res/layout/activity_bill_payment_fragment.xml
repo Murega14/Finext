@@ -17,11 +17,27 @@
         app:layout_constraintTop_toTopOf="parent"
         android:autofillHints="name" />
 
+<<<<<<< HEAD
+
+=======
+>>>>>>> master
     <EditText
         android:id="@+id/billamount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+<<<<<<< HEAD
+        android:autofillHints="creditCardNumber"
+        android:ems="10"
+        android:hint="@string/enter_amount"
+        android:inputType="numberDecimal"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.183" />
+=======
         android:ems="10"
         android:inputType="numberDecimal"
         android:hint="@string/enter_amount"
@@ -29,11 +45,22 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/billname"
         android:autofillHints="creditCardNumber" />
+>>>>>>> master
 
     <EditText
         android:id="@+id/duedate"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:hint="Enter Date"
+        android:inputType="date"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313" />
+=======
         android:layout_marginTop="20dp"
         android:inputType="date"
         android:hint="Enter Date"
@@ -42,14 +69,22 @@
         app:layout_constraintStart_toStartOf="parent" />
 
 
+>>>>>>> master
 
     <Button
         android:id="@+id/billbtnsave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+<<<<<<< HEAD
+        android:layout_marginTop="28dp"
+        android:text="@string/submit"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.55"
+=======
         android:layout_marginTop="32dp"
         android:text="@string/submit"
         app:layout_constraintEnd_toEndOf="parent"
+>>>>>>> master
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/duedate" />
 

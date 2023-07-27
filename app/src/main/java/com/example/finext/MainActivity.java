@@ -19,6 +19,7 @@ import androidx.fragment.app.FragmentTransaction;
 import com.example.finext.databinding.ActivityMainBinding;
 import com.example.finext.fragments.BillpaymentFragment;
 import com.example.finext.fragments.BudgetFragment;
+import com.example.finext.fragments.DashboardFragment;
 import com.example.finext.fragments.ExpenseFragment;
 import com.example.finext.views.ExpenseView;
 import com.example.finext.views.BillsView;
@@ -36,7 +37,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        replaceFragment(new ExpenseFragment());
+        replaceFragment(new DashboardFragment());
 
         binding.bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
