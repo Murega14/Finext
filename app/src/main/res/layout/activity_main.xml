@@ -40,6 +40,7 @@
         android:layout_gravity="start"
         app:headerLayout="@layout/nav_header"
         app:menu="@menu/nav_menu"
+        android:background="@color/purple_700"
         app:itemIconTint="@color/lavender"
         app:itemTextColor="@color/lavender"/>
 
@@ -63,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:background="@android:color/transparent"
+                android:background="@android:color/background_light"
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/bottom_menu" />
 
@@ -72,7 +73,7 @@
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:backgroundTint="@color/white"
+            android:backgroundTint="@color/purple_700"
             android:src="@drawable/baseline_add_24"
             app:layout_anchor="@id/bottomAppBar"
             app:maxImageSize="40dp"
