@@ -24,6 +24,7 @@ class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
 
     private lateinit var budgetRef: DatabaseReference
+    private lateinit var expenseRef: DatabaseReference
 
     private var totalBudget: Double = 0.0
     private var totalExpense: Double = 0.0
@@ -38,7 +39,7 @@ class DashboardFragment : Fragment() {
         budgetRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    totalBudget = snapshot.child("amount").getValue(Double::class.java) ?: 0.0
+                    totalBudget = snapshot.child("budgetamount").getValue(Double::class.java) ?: 0.0
                     updatePieChart()
                 }
             }
@@ -48,8 +49,17 @@ class DashboardFragment : Fragment() {
             }
         })
 
-        // For demonstration purposes, I'm assuming totalExpense is fetched from Firebase as well
-        totalExpense = 500.0 // Replace with actual totalExpense value fetched from Firebase
+        expenseRef = FirebaseDatabase.getInstance().getReference("Expense")
+        expenseRef.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                totalExpense = snapshot.child("amount").getValue(Double::class.java)!!
+                updatePieChart()
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+        })
 
         return binding.root
     }
@@ -77,7 +87,8 @@ class DashboardFragment : Fragment() {
 
         // Calculate the remaining budget and update the TextView
         val remainingBudget = totalBudget - totalExpense
-        // binding.tvRemainingBudget.text = getString(R.string.remaining_budget, remainingBudget)
+        binding.tvRemainingBudget.text = "Remaining Budget: $remainingBudget"
+
     }
 
     private fun setColors(dataSet: PieDataSet, colors: List<Int>, context: Context) {

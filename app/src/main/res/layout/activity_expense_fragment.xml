@@ -8,7 +8,7 @@
     <EditText
         android:id="@+id/label"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="50dp"
         android:autofillHints="name"
         android:ems="10"
@@ -21,7 +21,7 @@
     <EditText
         android:id="@+id/amount"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="50dp"
         android:layout_marginTop="48dp"
         android:autofillHints="creditCardNumber"
         android:ems="10"
@@ -41,7 +41,7 @@
         android:backgroundTint="@color/magenta"
         android:backgroundTintMode="screen"
         android:text="@string/submit"
-        android:textColor="@color/indigo"
+        android:textColor="@color/yellow"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amount" />

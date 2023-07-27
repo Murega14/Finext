@@ -71,4 +71,14 @@
     <string name="add_icon">add icon</string>
     <string name="budget_period">Budget Period</string>
     <string name="loading_data">Loading Data.....</string>
+    <string name="enter_bill_name">Enter Bill Name</string>
+    <string name="enter_date">Enter Date</string>
+    <string name="expenses">Expenses</string>
+    <string name="budgets">Budgets</string>
+    <string name="monthly_insights">Monthly Insights</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="create_a_budget">Create a Budget</string>
+    <string name="add_a_bill">Add a Bill</string>
+    <string name="bills">Bills</string>
+
 </resources>

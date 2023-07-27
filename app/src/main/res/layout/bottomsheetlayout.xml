@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/headerbkg">
+    android:background="@color/lavender">
 
     <ImageView
         android:layout_width="70dp"
@@ -29,7 +29,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add Expense"
+            android:text="@string/add_expense"
             android:textColor="@color/gold"
             android:layout_marginStart="30dp"
             android:textSize="16sp"/>
@@ -52,7 +52,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Create a Budget"
+            android:text="@string/create_a_budget"
             android:textColor="@color/gold"
             android:layout_marginStart="30dp"
             android:textSize="16sp"/>
@@ -78,7 +78,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Add a bill"
+            android:text="@string/add_a_bill"
             android:textColor="@color/gold"
             android:layout_marginStart="30dp"
             android:textSize="16sp"/>
