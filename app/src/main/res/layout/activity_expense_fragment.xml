@@ -1,43 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    android:background="@drawable/simple">
 
     <EditText
         android:id="@+id/label"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_marginTop="50dp"
+        android:autofillHints="name"
         android:ems="10"
-        android:inputType="text"
         android:hint="@string/enter_expense_category"
+        android:inputType="text"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        android:autofillHints="name" />
+        app:layout_constraintTop_toTopOf="parent" />
 
     <EditText
         android:id="@+id/amount"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:layout_marginTop="48dp"
+        android:autofillHints="creditCardNumber"
         android:ems="10"
-        android:inputType="numberDecimal"
         android:hint="@string/enter_amount"
+        android:inputType="numberDecimal"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/label"
-        android:autofillHints="creditCardNumber" />
-
-
+        app:layout_constraintTop_toBottomOf="@+id/label" />
 
     <Button
         android:id="@+id/btnSave"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="32dp"
+        android:background="@color/magenta"
+        android:backgroundTint="@color/magenta"
+        android:backgroundTintMode="screen"
         android:text="@string/submit"
+        android:textColor="@color/indigo"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/amount" />

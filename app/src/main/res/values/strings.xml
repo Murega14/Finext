@@ -65,4 +65,7 @@
     <string name="enter_expense_category">Enter Expense Category</string>
     <string name="budget">Budget</string>
     <string name="remaining_budget">Remaining Budget</string>
+    <string name="total_expense_0">Total Expense: 0</string>
+    <string name="amount">Amount</string>
+    <string name="database_read_error">Database read error: %1$s</string>
 </resources>

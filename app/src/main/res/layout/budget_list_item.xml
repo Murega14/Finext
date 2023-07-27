@@ -38,7 +38,7 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvBudgetAmount"
+            android:id="@+id/tvBudgetValue"
             android:layout_width="110dp"
             android:layout_height="36dp"
             android:shadowColor="@color/gray"

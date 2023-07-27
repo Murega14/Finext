@@ -37,7 +37,7 @@ class BudgetAdapter(private val budgetList: ArrayList<BudgetModel>) :
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val tvBudgetName: TextView = itemView.findViewById(R.id.tvBudgetName)
-        val tvBudgetAmount: TextView = itemView.findViewById(R.id.tvBudgetAmount)
+        val tvBudgetAmount: TextView = itemView.findViewById(R.id.tvBudgetValue)
 
         init {
             itemView.setOnClickListener {

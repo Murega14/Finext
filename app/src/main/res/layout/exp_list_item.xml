@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:gravity="center"
-        android:background="@color/cardview_dark_background"
+        android:background="@color/lavender"
         android:orientation="vertical"
         android:padding="16dp">
 
@@ -50,7 +50,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Amount"
+            android:text="@string/amount"
             android:textColor="@color/pink"
             android:textSize="30sp"
             android:textStyle="normal" />

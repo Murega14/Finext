@@ -44,16 +44,24 @@ class DashboardFragment : Fragment() {
         // Add listeners to fetch data from Firebase and update the UI
         budgetRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                if (snapshot.exists()) {
-                    totalBudget = snapshot.child("amou").getValue(Double::class.java) ?: 0.0
-                    updatePieChart()
+                totalBudget = 0.0
+                
+                for (budgetSnapshot in snapshot.children) {
+                    val budgetAmount = budgetSnapshot.child("budgetValue").getValue(Double::class.java)
+                    if (budgetAmount != null) {
+                        totalBudget += budgetAmount
+                    }
                 }
+
+                updatePieChart()
             }
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle database read error if needed
+                Log.e(TAG, getString(R.string.database_read_error, error.message))
             }
         })
+
 
         expenseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
@@ -84,7 +92,8 @@ class DashboardFragment : Fragment() {
 
         val entries: ArrayList<PieEntry> = ArrayList()
         entries.add(PieEntry(totalExpense.toFloat(), "Total Expense"))
-        entries.add(PieEntry((totalBudget - totalExpense).toFloat(), "Remaining Budget"))
+        entries.add(PieEntry(totalBudget.toFloat(), "Total Budget"))
+        // entries.add(PieEntry((totalBudget - totalExpense).toFloat(), "Remaining Budget"))
 
         val dataSet = PieDataSet(entries, "")
         setColors(dataSet, listOf(R.color.orange, R.color.olive), requireContext())
@@ -94,7 +103,7 @@ class DashboardFragment : Fragment() {
         pieData.setValueFormatter(PercentFormatter())
         pieChart.data = pieData
         pieChart.description.isEnabled = false
-        pieChart.legend.isEnabled = false
+        pieChart.legend.isEnabled = true
         pieChart.setEntryLabelColor(R.color.black)
         pieChart.setUsePercentValues(true)
         pieChart.isDrawHoleEnabled = false

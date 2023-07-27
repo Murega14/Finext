@@ -21,7 +21,7 @@ class BudgetFragment : Fragment() {
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         val view = inflater.inflate(R.layout.activity_budget_fragment, container, false)
 
-        budgetValue = view.findViewById(R.id.budgetamount)
+        budgetValue = view.findViewById(R.id.budgetvalue)
         budgetbtnSaveData = view.findViewById(R.id.budgetbtnSave)
 
         dbRef = FirebaseDatabase.getInstance().getReference("Budget")
@@ -52,9 +52,20 @@ class BudgetFragment : Fragment() {
             return
         }
 
+
+
         // Get the selected budget period from the Spinner
         val budgetPeriodSpinner = view?.findViewById<Spinner>(R.id.budgetPeriodSpinner)
-        val selectedBudgetPeriod = budgetPeriodSpinner?.selectedItem.toString()
+        val selectedBudgetPeriodString = budgetPeriodSpinner?.selectedItem.toString()
+
+        // Convert the selected budget period to a Double
+        val selectedBudgetPeriod: Double = when (selectedBudgetPeriodString) {
+            "1 week" -> 1.0
+            "2 weeks" -> 2.0
+            "3 weeks" -> 3.0
+            "1 month" -> 4.0
+            else -> 1.0 // Default value
+        }
 
         val budgetId = dbRef.push().key!!
 
@@ -70,4 +81,5 @@ class BudgetFragment : Fragment() {
                 Toast.makeText(requireContext(), "Error ${err.message}", Toast.LENGTH_LONG).show()
             }
     }
+
 }

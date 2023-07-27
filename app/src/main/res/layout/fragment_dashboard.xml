@@ -2,38 +2,43 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:background="@drawable/simple">
 
-    <!-- You can add other views related to the dashboard here -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:background="@drawable/simple">
+            <!-- You can add other views related to the dashboard here -->
 
-    <TextView
-        android:id="@+id/totalExpenseTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="20sp"
-        android:padding="16dp"
-        android:textColor="@color/black"
-        android:text="Total Expense: 0"
-        android:layout_gravity="center_horizontal"/>
+            <TextView
+                android:id="@+id/totalExpense"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:padding="16dp"
+                android:textColor="@color/black"
+                android:text="@string/total_expense_0"
+                android:layout_gravity="center_horizontal"/>
 
-    <com.github.mikephil.charting.charts.PieChart
-        android:id="@+id/pieChart"
-        android:layout_width="match_parent"
-        android:layout_height="300dp" />
+            <com.github.mikephil.charting.charts.PieChart
+                android:id="@+id/pieChart"
+                android:layout_width="match_parent"
+                android:layout_height="300dp" />
 
-    <!-- TextView for remaining budget -->
-    <TextView
-        android:id="@+id/tvRemainingBudget"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:textSize="16sp"
-        android:textColor="@color/black"
-        android:textStyle="bold" />
+            <!-- TextView for remaining budget -->
+            <TextView
+                android:id="@+id/tvRemainingBudget"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:textSize="16sp"
+                android:textColor="@color/black"
+                android:textStyle="bold" />
 
+            <!-- Add other views here as per your dashboard design -->
 
-
-
-    <!-- Add other views here as per your dashboard design -->
+        </LinearLayout>
 
 </LinearLayout>
