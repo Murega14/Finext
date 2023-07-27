@@ -18,15 +18,6 @@
         android:padding="16dp">
 
 
-
-        <TextView
-            android:id="@+id/tvExpName"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-<<<<<<< HEAD
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
-
             <TextView
                 android:id="@+id/tvExpName"
                 android:layout_width="293dp"
@@ -37,23 +28,6 @@
                 android:textColor="@color/coral"
                 android:textSize="30sp"
                 android:textStyle="bold" />
-=======
-            android:text="@string/expense"
-            android:layout_gravity="center"
-            android:gravity="center"
-            android:textColor="@color/black"
-            android:textSize="30sp"
-            android:textStyle="bold"/>
-        <TextView
-            android:id="@+id/tvExpAmount"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="Amount"
-            android:layout_gravity="center"
-            android:textColor="@color/black"
-            android:textSize="20dp"
-            android:textStyle="italic" />
->>>>>>> master
 
 
 

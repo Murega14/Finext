@@ -27,7 +27,6 @@ class BillsView : AppCompatActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-<<<<<<< HEAD
         setContentView(R.layout.activity_bills)
 
         billRecyclerView = findViewById(R.id.rvBills)
@@ -77,8 +76,5 @@ class BillsView : AppCompatActivity() {
                 billRecyclerView.visibility = View.VISIBLE
             }
         })
-=======
-        setContentView(R.layout.`activity_bill_payment_fragment.xml`)
->>>>>>> master
     }
 }
