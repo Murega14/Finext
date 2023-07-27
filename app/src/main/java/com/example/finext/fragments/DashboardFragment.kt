@@ -1,9 +1,7 @@
 package com.example.finext.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,7 +24,6 @@ class DashboardFragment : Fragment() {
     private lateinit var binding: FragmentDashboardBinding
 
     private lateinit var budgetRef: DatabaseReference
-    private lateinit var expenseRef: DatabaseReference
 
     private var totalBudget: Double = 0.0
     private var totalExpense: Double = 0.0
@@ -37,52 +34,22 @@ class DashboardFragment : Fragment() {
     ): View {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-        // Set up Firebase references
         budgetRef = FirebaseDatabase.getInstance().getReference("Budget")
-        expenseRef = FirebaseDatabase.getInstance().getReference("Expenses")
-
-        // Add listeners to fetch data from Firebase and update the UI
         budgetRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                totalBudget = 0.0
-                
-                for (budgetSnapshot in snapshot.children) {
-                    val budgetAmount = budgetSnapshot.child("budgetValue").getValue(Double::class.java)
-                    if (budgetAmount != null) {
-                        totalBudget += budgetAmount
-                    }
+                if (snapshot.exists()) {
+                    totalBudget = snapshot.child("amount").getValue(Double::class.java) ?: 0.0
+                    updatePieChart()
                 }
-
-                updatePieChart()
             }
 
             override fun onCancelled(error: DatabaseError) {
                 // Handle database read error if needed
-                Log.e(TAG, getString(R.string.database_read_error, error.message))
             }
         })
 
-
-        expenseRef.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                totalExpense = 0.0
-
-                for (expenseSnapshot in snapshot.children) {
-                    val expenseAmount = expenseSnapshot.child("amount").getValue(Double::class.java)
-                    if (expenseAmount != null) {
-                        totalExpense += expenseAmount
-                    }
-                }
-
-                updatePieChart()
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-                // Handle database read error if needed
-                Log.e(TAG, "Database read error: ${error.message}")
-
-            }
-        })
+        // For demonstration purposes, I'm assuming totalExpense is fetched from Firebase as well
+        totalExpense = 500.0 // Replace with actual totalExpense value fetched from Firebase
 
         return binding.root
     }
@@ -92,8 +59,7 @@ class DashboardFragment : Fragment() {
 
         val entries: ArrayList<PieEntry> = ArrayList()
         entries.add(PieEntry(totalExpense.toFloat(), "Total Expense"))
-        entries.add(PieEntry(totalBudget.toFloat(), "Total Budget"))
-        // entries.add(PieEntry((totalBudget - totalExpense).toFloat(), "Remaining Budget"))
+        entries.add(PieEntry((totalBudget - totalExpense).toFloat(), "Remaining Budget"))
 
         val dataSet = PieDataSet(entries, "")
         setColors(dataSet, listOf(R.color.orange, R.color.olive), requireContext())
@@ -103,7 +69,7 @@ class DashboardFragment : Fragment() {
         pieData.setValueFormatter(PercentFormatter())
         pieChart.data = pieData
         pieChart.description.isEnabled = false
-        pieChart.legend.isEnabled = true
+        pieChart.legend.isEnabled = false
         pieChart.setEntryLabelColor(R.color.black)
         pieChart.setUsePercentValues(true)
         pieChart.isDrawHoleEnabled = false
@@ -111,8 +77,7 @@ class DashboardFragment : Fragment() {
 
         // Calculate the remaining budget and update the TextView
         val remainingBudget = totalBudget - totalExpense
-        binding.tvRemainingBudget.text = "Remaining Budget: $remainingBudget"
-
+        // binding.tvRemainingBudget.text = getString(R.string.remaining_budget, remainingBudget)
     }
 
     private fun setColors(dataSet: PieDataSet, colors: List<Int>, context: Context) {

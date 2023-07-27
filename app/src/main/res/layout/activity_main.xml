@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start"
     tools:context=".MainActivity"
-    android:background="@color/material_dynamic_neutral0">
+    android:background="@drawable/simple">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -64,7 +64,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginEnd="20dp"
-                android:background="@android:color/background_light"
+                android:background="@color/lavender"
                 app:labelVisibilityMode="labeled"
                 app:menu="@menu/bottom_menu" />
 
@@ -78,7 +78,8 @@
             app:layout_anchor="@id/bottomAppBar"
             app:maxImageSize="40dp"
             android:id="@+id/fab"
-            app:tint="@color/lavender" />
+            app:tint="@color/lavender"
+            android:contentDescription="@string/add_icon" />
 
     </androidx.coordinatorlayout.widget.CoordinatorLayout>
 

@@ -62,6 +62,7 @@ class BudgetView : AppCompatActivity() {
                             val intent = Intent(this@BudgetView, BudgetFragment::class.java)
 
                             intent.putExtra("budgetId", budgetList[position].budgetId)
+                            intent.putextra("budgetName", budgetList[position].budgetName)
                             intent.putExtra("budgetValue", budgetList[position].budgetValue)
                             intent.putExtra("budgetName", budgetList[position].budgetName)
                             intent.putExtra("budgetPeriod", budgetList[position].selectedBudgetPeriod)

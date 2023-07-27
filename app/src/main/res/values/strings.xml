@@ -68,4 +68,7 @@
     <string name="total_expense_0">Total Expense: 0</string>
     <string name="amount">Amount</string>
     <string name="database_read_error">Database read error: %1$s</string>
+    <string name="add_icon">add icon</string>
+    <string name="budget_period">Budget Period</string>
+    <string name="loading_data">Loading Data.....</string>
 </resources>
