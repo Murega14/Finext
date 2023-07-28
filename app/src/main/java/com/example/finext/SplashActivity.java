@@ -9,7 +9,7 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class SplashActivity extends  androidx.appcompat.app.AppCompatActivity{
 
-    FirebaseUser currentUser;
+    // --Commented out by Inspection (7/28/23, 10:03 AM):FirebaseUser currentUser;
     private FirebaseAuth mAuth;
 
     @Override

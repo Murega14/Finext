@@ -13,11 +13,7 @@ import com.github.mikephil.charting.data.PieData
 import com.github.mikephil.charting.data.PieDataSet
 import com.github.mikephil.charting.data.PieEntry
 import com.github.mikephil.charting.formatter.PercentFormatter
-import com.google.firebase.database.DatabaseReference
-import com.google.firebase.database.FirebaseDatabase
-import com.google.firebase.database.DataSnapshot
-import com.google.firebase.database.DatabaseError
-import com.google.firebase.database.ValueEventListener
+import com.google.firebase.database.*
 
 class DashboardFragment : Fragment() {
 
@@ -39,7 +35,8 @@ class DashboardFragment : Fragment() {
         budgetRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    totalBudget = snapshot.child("budgetamount").getValue(Double::class.java) ?: 0.0
+                    val budgetAmountString = snapshot.child("budgetamount").getValue(String::class.java)
+                    totalBudget = budgetAmountString?.toDoubleOrNull() ?: 0.0
                     updatePieChart()
                 }
             }
@@ -52,12 +49,13 @@ class DashboardFragment : Fragment() {
         expenseRef = FirebaseDatabase.getInstance().getReference("Expense")
         expenseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                totalExpense = snapshot.child("amount").getValue(Double::class.java)!!
+                val amountString = snapshot.child("amount").getValue(String::class.java)
+                totalExpense = amountString?.toDoubleOrNull() ?: 0.0
                 updatePieChart()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                TODO("Not yet implemented")
+                // Handle database read error if needed
             }
         })
 
@@ -69,7 +67,7 @@ class DashboardFragment : Fragment() {
 
         val entries: ArrayList<PieEntry> = ArrayList()
         entries.add(PieEntry(totalExpense.toFloat(), "Total Expense"))
-        entries.add(PieEntry((totalBudget - totalExpense).toFloat(), "Remaining Budget"))
+        entries.add(PieEntry((totalBudget).toFloat(), "Total Budget"))
 
         val dataSet = PieDataSet(entries, "")
         setColors(dataSet, listOf(R.color.orange, R.color.olive), requireContext())
@@ -87,8 +85,8 @@ class DashboardFragment : Fragment() {
 
         // Calculate the remaining budget and update the TextView
         val remainingBudget = totalBudget - totalExpense
-        binding.tvRemainingBudget.text = "Remaining Budget: $remainingBudget"
-
+        val remainingBudgetText = getString(R.string.remaining_budget, remainingBudget)
+        binding.tvRemainingBudget.text = remainingBudgetText
     }
 
     private fun setColors(dataSet: PieDataSet, colors: List<Int>, context: Context) {

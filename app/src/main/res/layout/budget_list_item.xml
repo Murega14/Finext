@@ -9,14 +9,12 @@
     android:backgroundTintMode="screen"
     android:background="@color/gray">
 
-
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="181dp"
         android:gravity="center"
         android:orientation="horizontal"
         android:padding="16dp">
-
 
         <TextView
             android:id="@+id/tvBudgetName"
@@ -28,32 +26,15 @@
             android:textSize="30sp"
             android:textStyle="bold" />
 
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal" >
-
-
-
-        </LinearLayout>
-
         <TextView
             android:id="@+id/tvBudgetValue"
             android:layout_width="110dp"
             android:layout_height="36dp"
+            android:layout_marginStart="8dp"
             android:shadowColor="@color/gray"
             android:text="@string/amount"
             android:textAlignment="center"
             android:textSize="30sp" />
-
-        <LinearLayout
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="start"
-            android:orientation="horizontal" >
-
-        </LinearLayout>
 
         <TextView
             android:layout_width="116dp"

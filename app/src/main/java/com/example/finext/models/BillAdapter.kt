@@ -1,3 +1,9 @@
+@file:Suppress(
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator",
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator",
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator"
+)
+
 package com.example.finext.models
 
 import android.view.LayoutInflater

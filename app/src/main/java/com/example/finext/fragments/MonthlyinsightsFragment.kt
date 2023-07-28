@@ -10,8 +10,7 @@ import com.example.finext.R
 
 class MonthlyinsightsFragment : Fragment() {
 
-    companion object {
-    }
+    companion object;
 
     private lateinit var viewModel: MonthlyinsightsViewModel
 
