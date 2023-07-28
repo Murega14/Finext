@@ -24,18 +24,16 @@ import com.example.finext.fragments.ExpenseFragment;
 import com.example.finext.views.ExpenseView;
 import com.example.finext.views.BillsView;
 import com.example.finext.views.BudgetView;
-import com.example.finext.views.insights;
+import com.example.finext.views.Insights;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.finext.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new DashboardFragment());
 
@@ -52,7 +50,7 @@ public class MainActivity extends AppCompatActivity {
                     startActivity(new Intent(MainActivity.this, BillsView.class));
                     break;
                 case R.id.insights:
-                    startActivity(new Intent(MainActivity.this, insights.class));
+                    startActivity(new Intent(MainActivity.this, Insights.class));
                     break;
             }
             return true;

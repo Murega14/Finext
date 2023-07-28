@@ -18,7 +18,7 @@
         android:theme="@style/Theme.Finext"
         tools:targetApi="31">
         <activity
-            android:name=".views.insights"
+            android:name=".views.Insights"
             android:exported="false" />
         <activity
             android:name=".views.BillsView"
@@ -32,7 +32,7 @@
             android:label="@string/title_activity_expense"
             android:theme="@style/Theme.Finext" />
         <activity
-            android:name=".nProfileActivity"
+            android:name=".ProfileActivity"
             android:exported="false"
             android:label="@string/title_activity_profile"
             android:theme="@style/Theme.Finext" />

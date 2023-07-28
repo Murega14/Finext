@@ -17,7 +17,7 @@
             android:layout_height="197dp"
             android:layout_gravity="center_horizontal"
             android:src="@drawable/logo_transparent"
-            android:contentDescription="TODO" />
+            android:contentDescription="@string/app_logo" />
 
         <EditText
             android:id="@+id/register_email"

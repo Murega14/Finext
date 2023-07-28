@@ -12,12 +12,12 @@
     <ImageView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@drawable/aklogo"/>
-
+        android:src="@drawable/aklogo"
+        android:contentDescription="@string/app_logo"/>
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Username"
+        android:text="@string/username"
         android:textColor="@color/cyan"
         android:textStyle="italic"/>
 

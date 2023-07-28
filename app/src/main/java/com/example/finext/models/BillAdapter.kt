@@ -7,8 +7,6 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finext.R
 
-import com.example.finext.models.BillModel
-
 class BillAdapter(private val billList: ArrayList<BillModel>) :
     RecyclerView.Adapter<BillAdapter.ViewHolder>() {
 

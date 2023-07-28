@@ -23,7 +23,7 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:gravity="start"
-            android:text="Bill name"
+            android:text="@string/bill_name"
             android:textColor="@color/lavender"
             android:textSize="30sp"
             android:textStyle="normal" />
@@ -34,9 +34,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Bill amount"
+            android:text="@string/bill_amount"
             android:textColor="@color/lavender"
-            android:textSize="20dp"
+            android:textSize="20sp"
             android:textStyle="bold" />
 
         <TextView
@@ -44,7 +44,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="start"
-            android:text="Due date"
+            android:text="@string/due_date"
             android:textColor="@color/olive"
             android:textSize="16sp"
             android:textStyle="italic" />

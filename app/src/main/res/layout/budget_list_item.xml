@@ -56,7 +56,6 @@
         </LinearLayout>
 
         <TextView
-            android:id="@+id/tvSelectedBudgetPeriod"
             android:layout_width="116dp"
             android:layout_height="58dp"
             android:layout_gravity="center"

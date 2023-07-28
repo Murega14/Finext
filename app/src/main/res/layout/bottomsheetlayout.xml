@@ -10,79 +10,58 @@
         android:layout_height="wrap_content"
         android:src="@drawable/baseline_add_24"
         android:layout_gravity="center|top"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop"
+        android:contentDescription="@string/add_icon" />
 
 
-    <LinearLayout
-        android:id="@+id/expense"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:padding="10dp">
+        android:src="@drawable/baseline_expense24"
+        android:contentDescription="@string/expense" />
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_expense24"/>
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_expense"
-            android:textColor="@color/gold"
-            android:layout_marginStart="30dp"
-            android:textSize="16sp"/>
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/budgets"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <TextView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp">
+        android:text="@string/add_expense"
+        android:textColor="@color/gold"
+        android:layout_marginStart="30dp"
+        android:textSize="16sp"/>
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_budget_24"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/create_a_budget"
-            android:textColor="@color/gold"
-            android:layout_marginStart="30dp"
-            android:textSize="16sp"/>
 
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/bills"
-        android:orientation="horizontal"
-        android:layout_width="match_parent"
+    <ImageView
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="10dp"
-        android:paddingBottom="30dp">
+        android:src="@drawable/baseline_budget_24"
+        android:contentDescription="@string/budget" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/create_a_budget"
+        android:textColor="@color/gold"
+        android:layout_marginStart="30dp"
+        android:textSize="16sp"/>
 
 
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:src="@drawable/baseline_bills_24"/>
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/add_a_bill"
-            android:textColor="@color/gold"
-            android:layout_marginStart="30dp"
-            android:textSize="16sp"/>
 
-    </LinearLayout>
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/baseline_bills_24"
+        android:contentDescription="@string/bills" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/add_a_bill"
+        android:textColor="@color/gold"
+        android:layout_marginStart="30dp"
+        android:textSize="16sp"/>
+
 
 </LinearLayout>
