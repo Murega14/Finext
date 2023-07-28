@@ -10,9 +10,7 @@ import com.example.finext.R
 
 class MonthlyinsightsFragment : Fragment() {
 
-    companion object {
-        fun newInstance() = MonthlyinsightsFragment()
-    }
+    companion object;
 
     private lateinit var viewModel: MonthlyinsightsViewModel
 
@@ -23,9 +21,10 @@ class MonthlyinsightsFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_monthlyinsights, container, false)
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MonthlyinsightsViewModel::class.java)
+        viewModel = ViewModelProvider(this)[MonthlyinsightsViewModel::class.java]
         // TODO: Use the ViewModel
     }
 

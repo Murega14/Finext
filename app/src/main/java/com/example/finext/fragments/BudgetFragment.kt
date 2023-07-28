@@ -56,10 +56,9 @@ class BudgetFragment : Fragment() {
 
         // Get the selected budget period from the Spinner
         val budgetPeriodSpinner = view?.findViewById<Spinner>(R.id.budgetPeriodSpinner)
-        val selectedBudgetPeriodString = budgetPeriodSpinner?.selectedItem.toString()
 
         // Convert the selected budget period to a Double
-        val selectedBudgetPeriod: Double = when (selectedBudgetPeriodString) {
+        val selectedBudgetPeriod: Double = when (budgetPeriodSpinner?.selectedItem.toString()) {
             "1 week" -> 1.0
             "2 weeks" -> 2.0
             "3 weeks" -> 3.0

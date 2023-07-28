@@ -31,7 +31,7 @@ import androidx.core.content.FileProvider
 import java.io.File
 import java.io.IOException
 
-class nProfileActivity : AppCompatActivity() {
+class ProfileActivity : AppCompatActivity() {
 
     private val PICK_IMAGE_REQUEST = 1
     private lateinit var currentPhotoPath: String
@@ -88,6 +88,7 @@ class nProfileActivity : AppCompatActivity() {
         }
     }
 
+    @Deprecated("Deprecated in Java")
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == PICK_IMAGE_REQUEST && resultCode == RESULT_OK && data != null) {

@@ -1,3 +1,9 @@
+@file:Suppress(
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator",
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator",
+    "Annotator", "Annotator", "Annotator", "Annotator", "Annotator", "Annotator"
+)
+
 package com.example.finext.models
 
 import android.view.LayoutInflater
@@ -6,8 +12,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finext.R
-
-import com.example.finext.models.BillModel
 
 class BillAdapter(private val billList: ArrayList<BillModel>) :
     RecyclerView.Adapter<BillAdapter.ViewHolder>() {

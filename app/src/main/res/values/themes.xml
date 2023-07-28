@@ -1,4 +1,4 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
+<resources>
     <!-- Base application theme. -->
     <style name="Theme.Finext" parent="Theme.MaterialComponents.DayNight.NoActionBar">
         <item name="colorPrimary">@color/lavender</item>
@@ -19,9 +19,5 @@
         <item name="android:windowExitAnimation">@anim/slide_out</item>
     </style>
     <!-- Base application theme. -->
-    <style name="Base.Theme.Finext" parent="Theme.Material3.DayNight.NoActionBar">
-        <!-- Customize your light theme here. -->
-        <!-- <item name="colorPrimary">@color/my_light_primary</item> -->
-    </style>
 
 </resources>

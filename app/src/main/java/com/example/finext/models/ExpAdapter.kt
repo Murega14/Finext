@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.finext.R
-import com.example.finext.models.ExpenseModel
 
 class ExpAdapter(private val expList: ArrayList<ExpenseModel>) :
     RecyclerView.Adapter<ExpAdapter.ViewHolder>() {

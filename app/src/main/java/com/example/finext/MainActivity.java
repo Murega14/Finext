@@ -24,36 +24,29 @@ import com.example.finext.fragments.ExpenseFragment;
 import com.example.finext.views.ExpenseView;
 import com.example.finext.views.BillsView;
 import com.example.finext.views.BudgetView;
-import com.example.finext.views.insights;
+import com.example.finext.views.Insights;
 
 import java.util.Objects;
 
 public class MainActivity extends AppCompatActivity {
 
-    private ActivityMainBinding binding;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        binding = ActivityMainBinding.inflate(getLayoutInflater());
+        com.example.finext.databinding.ActivityMainBinding binding = ActivityMainBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
         replaceFragment(new DashboardFragment());
 
         binding.bottomNavigationView.setBackground(null);
         binding.bottomNavigationView.setOnItemSelectedListener(item -> {
-            switch (item.getItemId()) {
-                case R.id.expense:
-                    startActivity(new Intent(MainActivity.this, ExpenseView.class));
-                    break;
-                case R.id.budgets:
-                    startActivity(new Intent(MainActivity.this, BudgetView.class));
-                    break;
-                case R.id.bills:
-                    startActivity(new Intent(MainActivity.this, BillsView.class));
-                    break;
-                case R.id.insights:
-                    startActivity(new Intent(MainActivity.this, insights.class));
-                    break;
+            if (item.getItemId() == R.id.expense) {
+                startActivity(new Intent(MainActivity.this, ExpenseView.class));
+            } else if (item.getItemId() == R.id.budgets) {
+                startActivity(new Intent(MainActivity.this, BudgetView.class));
+            } else if (item.getItemId() == R.id.bills) {
+                startActivity(new Intent(MainActivity.this, BillsView.class));
+            } else if (item.getItemId() == R.id.insights) {
+                startActivity(new Intent(MainActivity.this, Insights.class));
             }
             return true;
         });
@@ -76,7 +69,6 @@ public class MainActivity extends AppCompatActivity {
         LinearLayout videoLayout = dialog.findViewById(R.id.expense);
         LinearLayout shortsLayout = dialog.findViewById(R.id.budgets);
         LinearLayout liveLayout = dialog.findViewById(R.id.bills);
-        //ImageView cancelButton = dialog.findViewById(R.id.cancelButton);
 
         videoLayout.setOnClickListener(v -> {
             dialog.dismiss();
@@ -96,12 +88,11 @@ public class MainActivity extends AppCompatActivity {
             replaceFragment(new BillpaymentFragment());
         });
 
-        //cancelButton.setOnClickListener(view -> dialog.dismiss());
-
         dialog.show();
         Objects.requireNonNull(dialog.getWindow()).setLayout(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.WRAP_CONTENT);
         dialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         dialog.getWindow().getAttributes().windowAnimations = R.style.DialogAnimation;
         dialog.getWindow().setGravity(Gravity.BOTTOM);
     }
+
 }
