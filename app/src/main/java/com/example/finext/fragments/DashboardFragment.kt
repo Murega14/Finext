@@ -1,9 +1,7 @@
 package com.example.finext.fragments
 
-import android.content.ContentValues.TAG
 import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -37,15 +35,11 @@ class DashboardFragment : Fragment() {
     ): View {
         binding = FragmentDashboardBinding.inflate(inflater, container, false)
 
-        // Set up Firebase references
         budgetRef = FirebaseDatabase.getInstance().getReference("Budget")
-        expenseRef = FirebaseDatabase.getInstance().getReference("Expenses")
-
-        // Add listeners to fetch data from Firebase and update the UI
         budgetRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
                 if (snapshot.exists()) {
-                    totalBudget = snapshot.child("amou").getValue(Double::class.java) ?: 0.0
+                    totalBudget = snapshot.child("budgetamount").getValue(Double::class.java) ?: 0.0
                     updatePieChart()
                 }
             }
@@ -55,24 +49,15 @@ class DashboardFragment : Fragment() {
             }
         })
 
+        expenseRef = FirebaseDatabase.getInstance().getReference("Expense")
         expenseRef.addValueEventListener(object : ValueEventListener {
             override fun onDataChange(snapshot: DataSnapshot) {
-                totalExpense = 0.0
-
-                for (expenseSnapshot in snapshot.children) {
-                    val expenseAmount = expenseSnapshot.child("amount").getValue(Double::class.java)
-                    if (expenseAmount != null) {
-                        totalExpense += expenseAmount
-                    }
-                }
-
+                totalExpense = snapshot.child("amount").getValue(Double::class.java)!!
                 updatePieChart()
             }
 
             override fun onCancelled(error: DatabaseError) {
-                // Handle database read error if needed
-                Log.e(TAG, "Database read error: ${error.message}")
-
+                TODO("Not yet implemented")
             }
         })
 

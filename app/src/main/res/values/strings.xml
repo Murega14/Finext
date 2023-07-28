@@ -64,9 +64,21 @@
     <string name="enter_amount">Enter amount</string>
     <string name="enter_expense_category">Enter Expense Category</string>
     <string name="budget">Budget</string>
-<<<<<<< HEAD
     <string name="remaining_budget">Remaining Budget</string>
-=======
+    <string name="total_expense_0">Total Expense: 0</string>
+    <string name="amount">Amount</string>
+    <string name="database_read_error">Database read error: %1$s</string>
+    <string name="add_icon">add icon</string>
+    <string name="budget_period">Budget Period</string>
+    <string name="loading_data">Loading Data.....</string>
+    <string name="enter_bill_name">Enter Bill Name</string>
     <string name="enter_date">Enter Date</string>
->>>>>>> master
+    <string name="expenses">Expenses</string>
+    <string name="budgets">Budgets</string>
+    <string name="monthly_insights">Monthly Insights</string>
+    <string name="add_expense">Add Expense</string>
+    <string name="create_a_budget">Create a Budget</string>
+    <string name="add_a_bill">Add a Bill</string>
+    <string name="bills">Bills</string>
+
 </resources>

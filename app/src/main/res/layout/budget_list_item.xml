@@ -5,79 +5,65 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     app:cardElevation="8dp"
     app:cardCornerRadius="8dp"
-<<<<<<< HEAD
     android:layout_margin="8dp"
     android:backgroundTintMode="screen"
     android:background="@color/gray">
 
-    <LinearLayout
-        android:layout_width="311dp"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:padding="16dp">
-=======
-    android:layout_margin="10dp">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="181dp"
         android:gravity="center"
-        android:padding="16dp"
-        android:orientation="horizontal">
->>>>>>> master
+        android:orientation="horizontal"
+        android:padding="16dp">
 
-        <LinearLayout
-            android:layout_width="150dp"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="0dp"
-            android:layout_gravity="center_vertical"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/tvBudgetName"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-<<<<<<< HEAD
-                android:gravity="center"
-                android:text="@string/budget"
-=======
-                android:gravity="start"
->>>>>>> master
-                android:textColor="@color/black"
-                android:textSize="30sp"
-                android:textStyle="bold" />
-
-        </LinearLayout>
-
-<<<<<<< HEAD
         <TextView
-            android:id="@+id/tvBudgetAmount"
-            android:layout_width="110dp"
-            android:layout_height="36dp"
-            android:shadowColor="@color/gray"
-            android:text="Amount"
+            android:id="@+id/tvBudgetName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="start"
+            android:text="@string/budget"
+            android:textColor="@color/black"
             android:textSize="30sp"
-            android:textAlignment="center"/>
-=======
+            android:textStyle="bold" />
+
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            >
-            <TextView
-                android:id="@+id/tvSelectedBudgetPeriod"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:text="Budget Period"
-                android:layout_gravity="center"
-                android:textColor="@color/gold"
-                android:textSize="25dp"
-                android:textStyle="italic" />
+            android:layout_gravity="start"
+            android:orientation="horizontal" >
+
+
+
         </LinearLayout>
 
->>>>>>> master
+        <TextView
+            android:id="@+id/tvBudgetValue"
+            android:layout_width="110dp"
+            android:layout_height="36dp"
+            android:shadowColor="@color/gray"
+            android:text="@string/amount"
+            android:textAlignment="center"
+            android:textSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="start"
+            android:orientation="horizontal" >
+
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tvSelectedBudgetPeriod"
+            android:layout_width="116dp"
+            android:layout_height="58dp"
+            android:layout_gravity="center"
+            android:text="@string/budget_period"
+            android:textColor="@color/gold"
+            android:textSize="25sp"
+            android:textStyle="italic" />
 
     </LinearLayout>
 

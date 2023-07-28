@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.EditText
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -21,6 +22,7 @@ import com.google.firebase.database.ValueEventListener
 class ExpenseView : AppCompatActivity() {
 
     private lateinit var expRecyclerView: RecyclerView
+    private lateinit var tvLoadingData: EditText
     private lateinit var expList: ArrayList<ExpenseModel>
     private lateinit var dbRef: DatabaseReference
 
@@ -66,6 +68,7 @@ class ExpenseView : AppCompatActivity() {
                     })
 
                     expRecyclerView.visibility = View.VISIBLE
+                    tvLoadingData.visibility = View.GONE
                 }
             }
 
